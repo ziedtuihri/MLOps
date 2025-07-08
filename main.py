@@ -4,7 +4,6 @@ import joblib
 from functionalities import (
     load_data,
     preprocess_data,
-    train_random_forest,
     train_gradient_boosting,
     clustering_kmeans,
     clustering_cah,
@@ -15,12 +14,14 @@ from functionalities import (
 from sklearn.model_selection import train_test_split
 from sklearn.ensemble import RandomForestRegressor
 from sklearn.metrics import mean_squared_error
+import numpy as np
 
 def main():
     mlflow.set_experiment("Productivity_Experiment")
     with mlflow.start_run():
         # Load and preprocess data
         df = load_data("dataProductivityEmployeese.csv")
+        df["wip"] = df["wip"].fillna(value=0)
         df = preprocess_data(df)
         print("Data loaded and preprocessed. Shape:", df.shape)
         mlflow.log_param("data_shape", str(df.shape))
@@ -41,12 +42,13 @@ def main():
         )
         rf_model.fit(X_train, y_train)
         y_pred_rf = rf_model.predict(X_test)
-        rf_rmse = mean_squared_error(y_test, y_pred_rf, squared=False)
-        mlflow.log_metric("RandomForest_RMSE", rf_rmse)
+        mse = mean_squared_error(y_test, y_pred_rf)
+        rmse = np.sqrt(mse)
+        mlflow.log_metric("RandomForest_RMSE", rmse)
         mlflow.sklearn.log_model(rf_model, "random_forest_model")
         joblib.dump(rf_model, "model.pkl")
         mlflow.log_artifact("model.pkl")
-        print(f"Random Forest RMSE: {rf_rmse:.4f}")
+        print(f"Random Forest RMSE: {rmse:.4f}")
 
         # Train Gradient Boosting model and log
         gb_rmse = train_gradient_boosting(X_train, y_train, X_test, y_test)
@@ -81,3 +83,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+

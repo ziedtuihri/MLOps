@@ -1,0 +1,14 @@
+artifact_uri: file:///home/ziedth/Desktop/MLOps/mlruns/839579487478021757/375ac61651284d1fb19b0d6261bfe326/artifacts
+end_time: 1751972478192
+entry_point_name: ''
+experiment_id: '839579487478021757'
+lifecycle_stage: active
+run_id: 375ac61651284d1fb19b0d6261bfe326
+run_name: suave-stag-798
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1751972477792
+status: 4
+tags: []
+user_id: ziedth

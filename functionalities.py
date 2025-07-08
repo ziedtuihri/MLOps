@@ -1,19 +1,16 @@
 import pandas as pd
 import numpy as np
-from sklearn.model_selection import train_test_split, GridSearchCV
-from sklearn.ensemble import RandomForestRegressor, GradientBoostingRegressor
-from sklearn.preprocessing import StandardScaler
+from sklearn.ensemble import GradientBoostingRegressor
 from sklearn.metrics import mean_squared_error, silhouette_score
 from sklearn.cluster import KMeans, AgglomerativeClustering, DBSCAN
 from sklearn.mixture import GaussianMixture
-
+from sklearn.preprocessing import StandardScaler
 
 def load_data(path):
     df = pd.read_csv(path)
     df["date"] = pd.to_datetime(df["date"])
     df["wip"].fillna(value=0, inplace=True)
     return df
-
 
 def preprocess_data(df):
     df = df.sort_values(by="date").reset_index(drop=True)
@@ -93,7 +90,6 @@ def preprocess_data(df):
     df["quarter"] = pd.to_numeric(df["quarter"], errors="coerce")
     df["department"] = df["department"].str.replace("sweing", "sewing")
     df["department"] = df["department"].str.replace("finishing ", "finishing")
-    # Encode categorical columns
     df["department"] = df["department"].replace({"sewing": 0, "finishing": 1})
     day_map = {
         "Monday": 0,
@@ -104,25 +100,12 @@ def preprocess_data(df):
         "Sunday": 5,
     }
     df["day"] = df["day"].replace(day_map)
-    # Remove any remaining non-numeric columns except the target
     for col in df.columns:
         if df[col].dtype == "object" and col != "actual_productivity":
             print(f"Warning: Dropping non-numeric column: {col}")
             df = df.drop(columns=[col])
     df = df.drop(columns=["date"], errors="ignore")
     return df
-
-
-def train_random_forest(X_train, y_train, X_test, y_test):
-    forest = RandomForestRegressor(
-        n_estimators=50, random_state=0, min_samples_split=10, max_depth=6
-    )
-    forest.fit(X_train, y_train)
-    y_pred = forest.predict(X_test)
-    mse = mean_squared_error(y_test, y_pred)
-    rmse = np.sqrt(mse)
-    return rmse
-
 
 def train_gradient_boosting(X_train, y_train, X_test, y_test):
     gbr = GradientBoostingRegressor(
@@ -134,13 +117,11 @@ def train_gradient_boosting(X_train, y_train, X_test, y_test):
     rmse = np.sqrt(mse)
     return rmse
 
-
 def clustering_kmeans(X_scaled, n_clusters=2):
     kmeans = KMeans(n_clusters=n_clusters, random_state=42)
     labels = kmeans.fit_predict(X_scaled)
     sil = silhouette_score(X_scaled, labels)
     return labels, sil
-
 
 def clustering_cah(X_scaled, n_clusters=2):
     clusterer = AgglomerativeClustering(
@@ -149,7 +130,6 @@ def clustering_cah(X_scaled, n_clusters=2):
     labels = clusterer.fit_predict(X_scaled)
     sil = silhouette_score(X_scaled, labels)
     return labels, sil
-
 
 def clustering_dbscan(X_scaled, eps=0.7, min_samples=10):
     dbscan = DBSCAN(eps=eps, min_samples=min_samples)
@@ -160,16 +140,15 @@ def clustering_dbscan(X_scaled, eps=0.7, min_samples=10):
         sil = None
     return labels, sil
 
-
 def clustering_gmm(X_scaled, n_components=2):
     gmm = GaussianMixture(n_components=n_components, random_state=42)
     labels = gmm.fit_predict(X_scaled)
     sil = silhouette_score(X_scaled, labels)
     return labels, sil
 
-
 def scale_features(X_train, X_test):
     sc = StandardScaler()
     X_train_sc = sc.fit_transform(X_train)
     X_test_sc = sc.transform(X_test)
     return X_train_sc, X_test_sc
+
