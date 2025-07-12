@@ -12,7 +12,7 @@ RUN pip install --no-cache-dir -r requirements.txt
 COPY . /app
 
 # Run main.py to generate model.pkl
-RUN python main.py
+RUN python3 main.py
 
 # Expose ports
 EXPOSE 5000 8000
