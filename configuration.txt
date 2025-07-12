@@ -5,7 +5,7 @@ elastic
 changeme
 
 kibana_system
-GO8DseXHVaFiTWxnIB+L
+8Z=Q69PAwFtv+HpJ5hhM
 
 
 logstash_system
