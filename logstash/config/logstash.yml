@@ -7,6 +7,6 @@ xpack.monitoring.elasticsearch.hosts: [ "http://elasticsearch:9200" ]
 
 # bin/elasticsearch-reset-password -u logstash_system --auto
 xpack.monitoring.elasticsearch.username: "logstash_system"
-xpack.monitoring.elasticsearch.password: "qSgLqIBdxtKKrpSc8Tf="
+xpack.monitoring.elasticsearch.password: "k8lgtVY-FBXfEKNZXiVG"
 
 node.name: logstash
