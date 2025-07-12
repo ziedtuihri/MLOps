@@ -20,3 +20,4 @@ EXPOSE 5000 8000
 # Use JSON format for CMD to prevent unintended behavior related to OS signals
 CMD ["sh", "-c", "mlflow ui --host 0.0.0.0 --port 5000 & uvicorn app:app --host 0.0.0.0 --port 8000"]
 
+# For production, consider using a process manager like supervisord or tini.

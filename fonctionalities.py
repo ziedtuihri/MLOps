@@ -6,6 +6,7 @@ from sklearn.preprocessing import StandardScaler
 from sklearn.metrics import mean_squared_error, silhouette_score
 from sklearn.cluster import KMeans, AgglomerativeClustering, DBSCAN
 from sklearn.mixture import GaussianMixture
+from scipy.cluster.hierarchy import dendrogram, linkage
 
 
 def load_data(path):
@@ -86,32 +87,34 @@ def preprocess_data(df):
         ]
     )
     df["no_of_workers"] = df["no_of_workers"].apply(lambda x: int(x))
-    df["actual_productivity"] = pd.to_numeric(
-        df["actual_productivity"], errors="coerce"
-    )
+    df["actual_productivity"] = df["actual_productivity"].astype(float)
     df["quarter"] = df["quarter"].astype(str).str.replace("Quarter", "")
     df["quarter"] = pd.to_numeric(df["quarter"], errors="coerce")
-    df["department"] = df["department"].str.replace("sweing", "sewing")
     df["department"] = df["department"].str.replace("finishing ", "finishing")
-    # Encode categorical columns
+    df["day"] = df["day"].replace(
+        {
+            "Monday": 0,
+            "Tuesday": 1,
+            "Wednesday": 2,
+            "Thursday": 3,
+            "Saturday": 4,
+            "Sunday": 5,
+        }
+    )
     df["department"] = df["department"].replace({"sewing": 0, "finishing": 1})
-    day_map = {
-        "Monday": 0,
-        "Tuesday": 1,
-        "Wednesday": 2,
-        "Thursday": 3,
-        "Saturday": 4,
-        "Sunday": 5,
-    }
-    df["day"] = df["day"].replace(day_map)
-    # Remove any remaining non-numeric columns except the target
-    for col in df.columns:
-        if df[col].dtype == "object" and col != "actual_productivity":
-            print(f"Warning: Dropping non-numeric column: {col}")
-            df = df.drop(columns=[col])
     df = df.drop(columns=["date"], errors="ignore")
     return df
 
+
+def train_random_forest(X_train, y_train, X_test, y_test):
+    forest = RandomForestRegressor(
+        n_estimators=50, random_state=0, min_samples_split=10, max_depth=6
+    )
+    forest.fit(X_train, y_train)
+    y_pred = forest.predict(X_test)
+    mse = mean_squared_error(y_test, y_pred)
+    rmse = np.sqrt(mse)
+    return rmse
 
 
 def train_gradient_boosting(X_train, y_train, X_test, y_test):

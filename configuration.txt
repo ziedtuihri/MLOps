@@ -1,0 +1,13 @@
+
+
+
+elastic
+changeme
+
+kibana_system
+CUao0v+S_0VmpRd0twIP
+
+
+logstash_system
+qSgLqIBdxtKKrpSc8Tf=
+

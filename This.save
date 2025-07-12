@@ -1,0 +1,8 @@
+ the same folder.** Your folder should look like: ``` mlops_project/ ├── functionalities.py ├── main.py └── 
+   dataProductivityEmployeese.csv ```
+2. **Navigate to that folder in your WSL terminal:** ```sh cd /path/to/mlops_project ``` 3. **Run your script 
+from inside that folder:**
+   ```sh python3 main.py ``` **If you still get the error:** - Check the spelling: the file must be named 
+exactly `functionalities.py` (not `functionalities.py.txt` or similar). - Run `ls` in your terminal to confirm 
+both files are present.
+Let me know if you need help with the folder structure or terminal commands!
