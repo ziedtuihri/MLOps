@@ -5,7 +5,7 @@
 server.name: kibana
 server.host: "0.0.0.0"
 server.shutdownTimeout: "5s"
-elasticsearch.hosts: [ "http://elasticsearch:9200" ]
+elasticsearch.hosts: [ "http://localhost:9200" ]
 
 # bin/elasticsearch-reset-password -u kibana_system --auto
 elasticsearch.username: "kibana_system"
