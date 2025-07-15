@@ -39,6 +39,9 @@ test:
 clean:
 	rm -rf venv __pycache__ .pytest_cache .mypy_cache
 
+app:
+	python3 main.py	
+
 # 11. Run everything
 all: install check prepare_data train_model test
 
