@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ML Model Prediction</title>
+</head>
+<body>
+    <h1>ML Model Prediction</h1>
+    <form method="post">
+        <label>Quarter: <input type="number" step="any" name="quarter" required></label><br>
+        <label>Department: <input type="number" step="any" name="department" required></label><br>
+        <label>Day: <input type="number" step="any" name="day" required></label><br>
+        <label>Team: <input type="number" step="any" name="team" required></label><br>
+        <label>Targeted Productivity: <input type="number" step="any" name="targeted_productivity" required></label><br>
+        <label>SMV: <input type="number" step="any" name="smv" required></label><br>
+        <label>WIP: <input type="number" step="any" name="wip" required></label><br>
+        <label>Over Time: <input type="number" step="any" name="over_time" required></label><br>
+        <label>Incentive: <input type="number" step="any" name="incentive" required></label><br>
+        <label>Idle Time: <input type="number" step="any" name="idle_time" required></label><br>
+        <label>Idle Men: <input type="number" step="any" name="idle_men" required></label><br>
+        <label>No of Style Change: <input type="number" step="any" name="no_of_style_change" required></label><br>
+        <label>No of Workers: <input type="number" step="any" name="no_of_workers" required></label><br>
+        <button type="submit">Predict</button>
+    </form>
+    {% if prediction is not none %}
+        <h2>Prediction: {{ prediction }}</h2>
+    {% endif %}
+</body>
+</html> 
