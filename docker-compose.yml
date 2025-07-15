@@ -83,8 +83,7 @@ services:
       discovery.type: single-node
     networks:
       - elk
-    depends_on:
-      - mlopsapp
+
 
   logstash:
     build:
@@ -107,7 +106,6 @@ services:
       - elk
     depends_on:
       - elasticsearch
-      - mlopsapp
 
   kibana:
     build:
@@ -125,7 +123,6 @@ services:
     depends_on:
       - elasticsearch
       - logstash
-      - mlopsapp
 
       
 networks:
