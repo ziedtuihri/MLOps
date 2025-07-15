@@ -1,0 +1,15 @@
+artifact_uri: file:///home/ziedth/MLOps/mlruns/275849947435026999/2967a579773a4c4abc0b148a72c4ff7c/artifacts
+end_time: 1752392207352
+entry_point_name: ''
+experiment_id: '275849947435026999'
+lifecycle_stage: active
+run_id: 2967a579773a4c4abc0b148a72c4ff7c
+run_name: learned-cub-985
+run_uuid: 2967a579773a4c4abc0b148a72c4ff7c
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1752392198637
+status: 3
+tags: []
+user_id: ziedth

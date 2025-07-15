@@ -1,0 +1,15 @@
+artifact_uri: file:///home/ziedth/MLOps/mlruns/275849947435026999/f9205a02c10f42f186251d9e311cb793/artifacts
+end_time: 1752347039212
+entry_point_name: ''
+experiment_id: '275849947435026999'
+lifecycle_stage: active
+run_id: f9205a02c10f42f186251d9e311cb793
+run_name: clumsy-moth-371
+run_uuid: f9205a02c10f42f186251d9e311cb793
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1752347030146
+status: 3
+tags: []
+user_id: ziedth

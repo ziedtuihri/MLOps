@@ -1,0 +1,15 @@
+artifact_uri: file:///home/ziedth/MLOps/mlruns/275849947435026999/3293d6ce87804585befe6c65e74ca689/artifacts
+end_time: 1752392524418
+entry_point_name: ''
+experiment_id: '275849947435026999'
+lifecycle_stage: active
+run_id: 3293d6ce87804585befe6c65e74ca689
+run_name: welcoming-owl-157
+run_uuid: 3293d6ce87804585befe6c65e74ca689
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1752392515910
+status: 3
+tags: []
+user_id: ziedth

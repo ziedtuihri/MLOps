@@ -106,7 +106,7 @@ services:
       - elasticsearch
 
   # MLflow Application
-  mlflow-app:
+  mlopsapp:
     build:
       context: .
       dockerfile: Dockerfile

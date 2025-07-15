@@ -1,0 +1,16 @@
+digest: 172483e0
+name: dataset
+profile: '{"num_rows": 225, "num_elements": 2925}'
+schema: '{"mlflow_colspec": [{"type": "long", "name": "quarter", "required": true},
+  {"type": "long", "name": "department", "required": true}, {"type": "long", "name":
+  "day", "required": true}, {"type": "double", "name": "team", "required": true},
+  {"type": "double", "name": "targeted_productivity", "required": true}, {"type":
+  "double", "name": "smv", "required": true}, {"type": "double", "name": "wip", "required":
+  true}, {"type": "double", "name": "over_time", "required": true}, {"type": "double",
+  "name": "incentive", "required": true}, {"type": "double", "name": "idle_time",
+  "required": true}, {"type": "double", "name": "idle_men", "required": true}, {"type":
+  "double", "name": "no_of_style_change", "required": true}, {"type": "long", "name":
+  "no_of_workers", "required": true}]}'
+source: '{"tags": {"mlflow.user": "ziedth", "mlflow.source.name": "main.py", "mlflow.source.type":
+  "LOCAL", "mlflow.source.git.commit": "df63c189a3294358513a7e9e416ed6c5b69f6015"}}'
+source_type: code
