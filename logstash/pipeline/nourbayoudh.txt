@@ -1,0 +1,31 @@
+# === Pipeline complet automatisé
+auto:
+        @echo "🚀 Exécution complète du pipeline + API :"
+        $(PYTHON) -c "\
+from functionalities import prepare_data, train_model, evaluate_model, save_model, load_model;\
+import mlflow;\
+mlflow.set_tracking_uri('http://localhost:5000');\
+print('▶ Préparation...');\
+X, cols = prepare_data('$(DATA)');\
+print('✅ Données préparées.');\
+print('▶ Entraînement...');\
+model, X_test, y_test = train_model(X, cols);\
+print('✅ Modèle entraîné.');\
+print('▶ Évaluation...');\
+evaluate_model(model, X_test, y_test);\
+print('▶ Sauvegarde...');\
+save_model(model);\
+print('▶ Chargement...');\
+load_model();\
+print('✅ Pipeline terminé avec succès.')"
+        @echo "🌐 Lancement de l'API FastAPI..."
+        uvicorn app:app --reload --host 0.0.0.0 --port 8000
+
+# === Interface de suivi MLflow
+mlflow-ui:
+        @echo "🚀 Lancement du serveur MLflow à http://localhost:5000"
+
+
+git remote add origin https://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@github.com/Nourbay/MLOps.git
+
+        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

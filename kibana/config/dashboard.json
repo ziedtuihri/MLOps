@@ -1,0 +1,76 @@
+{
+    "version": "8.0.0",
+    "objects": [
+      {
+        "id": "mlflow-dashboard",
+        "type": "dashboard",
+        "attributes": {
+          "title": "MLflow Pipeline Dashboard",
+          "hits": 0,
+          "description": "Dashboard for monitoring MLflow pipeline execution",
+          "panelsJSON": "[{\"type\":\"visualization\",\"id\":\"mlflow-events-overview\",\"panelIndex\":\"1\",\"gridData\":{\"x\":0,\"y\":0,\"w\":12,\"h\":8,\"i\":\"1\"}},{\"type\":\"visualization\",\"id\":\"mlflow-metrics-timeline\",\"panelIndex\":\"2\",\"gridData\":{\"x\":12,\"y\":0,\"w\":12,\"h\":8,\"i\":\"2\"}},{\"type\":\"visualization\",\"id\":\"mlflow-event-types\",\"panelIndex\":\"3\",\"gridData\":{\"x\":0,\"y\":8,\"w\":8,\"h\":6,\"i\":\"3\"}},{\"type\":\"visualization\",\"id\":\"mlflow-error-analysis\",\"panelIndex\":\"4\",\"gridData\":{\"x\":8,\"y\":8,\"w\":8,\"h\":6,\"i\":\"4\"}},{\"type\":\"visualization\",\"id\":\"mlflow-pipeline-steps\",\"panelIndex\":\"5\",\"gridData\":{\"x\":16,\"y\":8,\"w\":8,\"h\":6,\"i\":\"5\"}}]",
+          "optionsJSON": "{\"hidePanelTitles\":false,\"useMargins\":true}",
+          "version": "1",
+          "timeRestore": false,
+          "kibanaSavedObjectMeta": {
+            "searchSourceJSON": "{\"query\":{\"query\":\"\",\"language\":\"lucene\"},\"filter\":[]}"
+          }
+        }
+      },
+      {
+        "id": "mlflow-events-overview",
+        "type": "visualization",
+        "attributes": {
+          "title": "MLflow Events Overview",
+          "visState": "{\"title\":\"MLflow Events Overview\",\"type\":\"line\",\"params\":{\"type\":\"line\",\"grid\":{\"categoryLines\":false},\"categoryAxes\":[{\"id\":\"CategoryAxis-1\",\"type\":\"category\",\"position\":\"bottom\",\"show\":true,\"style\":{},\"scale\":{\"type\":\"linear\"},\"labels\":{\"show\":true,\"filter\":true,\"truncate\":100},\"title\":{}}],\"valueAxes\":[{\"id\":\"ValueAxis-1\",\"name\":\"LeftAxis-1\",\"type\":\"value\",\"position\":\"left\",\"show\":true,\"style\":{},\"scale\":{\"type\":\"linear\",\"mode\":\"normal\"},\"labels\":{\"show\":true,\"filter\":true,\"truncate\":100},\"title\":{\"text\":\"Event Count\"}}],\"seriesParams\":[{\"show\":true,\"type\":\"line\",\"mode\":\"normal\",\"data\":{\"label\":\"Events\",\"id\":\"1\"},\"valueAxis\":\"ValueAxis-1\",\"drawLinesBetweenPoints\":true,\"lineWidth\":2,\"interpolate\":\"linear\",\"showCircles\":true}],\"addTooltip\":true,\"addLegend\":true,\"legendPosition\":\"right\",\"times\":[],\"addTimeMarker\":false,\"dimensions\":{\"x\":{\"accessor\":0,\"format\":{\"id\":\"date\",\"params\":{\"pattern\":\"HH:mm:ss\"}},\"params\":{\"date\":true,\"interval\":\"PT30S\",\"intervalESValue\":30,\"intervalESUnit\":\"s\",\"format\":\"HH:mm:ss\",\"bounds\":{\"min\":\"2023-01-01T00:00:00.000Z\",\"max\":\"2023-12-31T23:59:59.999Z\"}},\"aggType\":\"date_histogram\"},\"y\":[{\"accessor\":1,\"format\":{\"id\":\"number\"},\"params\":{},\"aggType\":\"count\"}]}},\"aggs\":[{\"id\":\"1\",\"enabled\":true,\"type\":\"count\",\"schema\":\"metric\",\"params\":{}},{\"id\":\"2\",\"enabled\":true,\"type\":\"date_histogram\",\"schema\":\"segment\",\"params\":{\"field\":\"@timestamp\",\"timeRange\":{\"from\":\"now-1h\",\"to\":\"now\"},\"useNormalizedEsInterval\":true,\"scaleMetricValues\":false,\"interval\":\"auto\",\"intervalESValue\":30,\"intervalESUnit\":\"s\",\"min_doc_count\":1}}]}",
+          "uiStateJSON": "{}",
+          "description": "",
+          "savedSearchRefName": "search_0"
+        }
+      },
+      {
+        "id": "mlflow-metrics-timeline",
+        "type": "visualization",
+        "attributes": {
+          "title": "MLflow Metrics Timeline",
+          "visState": "{\"title\":\"MLflow Metrics Timeline\",\"type\":\"line\",\"params\":{\"type\":\"line\",\"grid\":{\"categoryLines\":false},\"categoryAxes\":[{\"id\":\"CategoryAxis-1\",\"type\":\"category\",\"position\":\"bottom\",\"show\":true,\"style\":{},\"scale\":{\"type\":\"linear\"},\"labels\":{\"show\":true,\"filter\":true,\"truncate\":100},\"title\":{}}],\"valueAxes\":[{\"id\":\"ValueAxis-1\",\"name\":\"LeftAxis-1\",\"type\":\"value\",\"position\":\"left\",\"show\":true,\"style\":{},\"scale\":{\"type\":\"linear\",\"mode\":\"normal\"},\"labels\":{\"show\":true,\"filter\":true,\"truncate\":100},\"title\":{\"text\":\"Metric Value\"}}],\"seriesParams\":[{\"show\":true,\"type\":\"line\",\"mode\":\"normal\",\"data\":{\"label\":\"RMSE\",\"id\":\"1\"},\"valueAxis\":\"ValueAxis-1\",\"drawLinesBetweenPoints\":true,\"lineWidth\":2,\"interpolate\":\"linear\",\"showCircles\":true},{\"show\":true,\"type\":\"line\",\"mode\":\"normal\",\"data\":{\"label\":\"R2\",\"id\":\"2\"},\"valueAxis\":\"ValueAxis-1\",\"drawLinesBetweenPoints\":true,\"lineWidth\":2,\"interpolate\":\"linear\",\"showCircles\":true}],\"addTooltip\":true,\"addLegend\":true,\"legendPosition\":\"right\",\"times\":[],\"addTimeMarker\":false,\"dimensions\":{\"x\":{\"accessor\":0,\"format\":{\"id\":\"date\",\"params\":{\"pattern\":\"HH:mm:ss\"}},\"params\":{\"date\":true,\"interval\":\"PT30S\",\"intervalESValue\":30,\"intervalESUnit\":\"s\",\"format\":\"HH:mm:ss\",\"bounds\":{\"min\":\"2023-01-01T00:00:00.000Z\",\"max\":\"2023-12-31T23:59:59.999Z\"}},\"aggType\":\"date_histogram\"},\"y\":[{\"accessor\":1,\"format\":{\"id\":\"number\"},\"params\":{\"field\":\"mlflow_event.details.rmse\"},\"aggType\":\"avg\"},{\"accessor\":2,\"format\":{\"id\":\"number\"},\"params\":{\"field\":\"mlflow_event.details.r2\"},\"aggType\":\"avg\"}]}},\"aggs\":[{\"id\":\"1\",\"enabled\":true,\"type\":\"avg\",\"schema\":\"metric\",\"params\":{\"field\":\"mlflow_event.details.rmse\"}},{\"id\":\"2\",\"enabled\":true,\"type\":\"avg\",\"schema\":\"metric\",\"params\":{\"field\":\"mlflow_event.details.r2\"}},{\"id\":\"3\",\"enabled\":true,\"type\":\"date_histogram\",\"schema\":\"segment\",\"params\":{\"field\":\"@timestamp\",\"timeRange\":{\"from\":\"now-1h\",\"to\":\"now\"},\"useNormalizedEsInterval\":true,\"scaleMetricValues\":false,\"interval\":\"auto\",\"intervalESValue\":30,\"intervalESUnit\":\"s\",\"min_doc_count\":1}}]}",
+          "uiStateJSON": "{}",
+          "description": "",
+          "savedSearchRefName": "search_0"
+        }
+      },
+      {
+        "id": "mlflow-event-types",
+        "type": "visualization",
+        "attributes": {
+          "title": "Event Types Distribution",
+          "visState": "{\"title\":\"Event Types Distribution\",\"type\":\"pie\",\"params\":{\"type\":\"pie\",\"addTooltip\":true,\"addLegend\":true,\"legendPosition\":\"right\",\"isDonut\":false,\"labels\":{\"show\":false,\"values\":true,\"last_level\":true,\"truncate\":100}},\"aggs\":[{\"id\":\"1\",\"enabled\":true,\"type\":\"count\",\"schema\":\"metric\",\"params\":{}},{\"id\":\"2\",\"enabled\":true,\"type\":\"terms\",\"schema\":\"segment\",\"params\":{\"field\":\"event_category\",\"size\":10,\"order\":\"desc\",\"orderBy\":\"1\",\"otherBucket\":false,\"otherBucketLabel\":\"Other\",\"missingBucket\":false,\"missingBucketLabel\":\"Missing\"}}]}",
+          "uiStateJSON": "{}",
+          "description": "",
+          "savedSearchRefName": "search_0"
+        }
+      },
+      {
+        "id": "mlflow-error-analysis",
+        "type": "visualization",
+        "attributes": {
+          "title": "Error Analysis",
+          "visState": "{\"title\":\"Error Analysis\",\"type\":\"table\",\"params\":{\"perPage\":10,\"showPartialRows\":false,\"showMeticsAtAllLevels\":false,\"sort\":{\"columnIndex\":null,\"direction\":null},\"showTotal\":false,\"showToolbar\":true,\"totalFunc\":\"sum\"},\"aggs\":[{\"id\":\"1\",\"enabled\":true,\"type\":\"count\",\"schema\":\"metric\",\"params\":{}},{\"id\":\"2\",\"enabled\":true,\"type\":\"terms\",\"schema\":\"bucket\",\"params\":{\"field\":\"event_category\",\"size\":5,\"order\":\"desc\",\"orderBy\":\"1\",\"otherBucket\":false,\"otherBucketLabel\":\"Other\",\"missingBucket\":false,\"missingBucketLabel\":\"Missing\"}},{\"id\":\"3\",\"enabled\":true,\"type\":\"terms\",\"schema\":\"bucket\",\"params\":{\"field\":\"mlflow_event.details.error\",\"size\":5,\"order\":\"desc\",\"orderBy\":\"1\",\"otherBucket\":false,\"otherBucketLabel\":\"Other\",\"missingBucket\":false,\"missingBucketLabel\":\"Missing\"}}]}",
+          "uiStateJSON": "{}",
+          "description": "",
+          "savedSearchRefName": "search_0"
+        }
+      },
+      {
+        "id": "mlflow-pipeline-steps",
+        "type": "visualization",
+        "attributes": {
+          "title": "Pipeline Steps Performance",
+          "visState": "{\"title\":\"Pipeline Steps Performance\",\"type\":\"bar\",\"params\":{\"type\":\"bar\",\"grid\":{\"categoryLines\":false},\"categoryAxes\":[{\"id\":\"CategoryAxis-1\",\"type\":\"category\",\"position\":\"bottom\",\"show\":true,\"style\":{},\"scale\":{\"type\":\"linear\"},\"labels\":{\"show\":true,\"filter\":true,\"truncate\":100},\"title\":{}}],\"valueAxes\":[{\"id\":\"ValueAxis-1\",\"name\":\"LeftAxis-1\",\"type\":\"value\",\"position\":\"left\",\"show\":true,\"style\":{},\"scale\":{\"type\":\"linear\",\"mode\":\"normal\"},\"labels\":{\"show\":true,\"filter\":true,\"truncate\":100},\"title\":{\"text\":\"Event Count\"}}],\"seriesParams\":[{\"show\":true,\"type\":\"bar\",\"mode\":\"grouped\",\"data\":{\"label\":\"Events\",\"id\":\"1\"},\"valueAxis\":\"ValueAxis-1\",\"drawLinesBetweenPoints\":false,\"lineWidth\":2,\"interpolate\":\"linear\",\"showCircles\":true}],\"addTooltip\":true,\"addLegend\":true,\"legendPosition\":\"right\",\"times\":[],\"addTimeMarker\":false,\"dimensions\":{\"x\":{\"accessor\":0,\"format\":{\"id\":\"string\"},\"params\":{\"date\":false,\"interval\":\"PT30S\",\"intervalESValue\":30,\"intervalESUnit\":\"s\",\"format\":\"HH:mm:ss\",\"bounds\":{\"min\":\"2023-01-01T00:00:00.000Z\",\"max\":\"2023-12-31T23:59:59.999Z\"}},\"aggType\":\"terms\"},\"y\":[{\"accessor\":1,\"format\":{\"id\":\"number\"},\"params\":{},\"aggType\":\"count\"}]}},\"aggs\":[{\"id\":\"1\",\"enabled\":true,\"type\":\"count\",\"schema\":\"metric\",\"params\":{}},{\"id\":\"2\",\"enabled\":true,\"type\":\"terms\",\"schema\":\"segment\",\"params\":{\"field\":\"event_category\",\"size\":10,\"order\":\"desc\",\"orderBy\":\"1\",\"otherBucket\":false,\"otherBucketLabel\":\"Other\",\"missingBucket\":false,\"missingBucketLabel\":\"Missing\"}}]}",
+          "uiStateJSON": "{}",
+          "description": "",
+          "savedSearchRefName": "search_0"
+        }
+      }
+    ]
+  } 
