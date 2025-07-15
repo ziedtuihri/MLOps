@@ -42,6 +42,12 @@ clean:
 app:
 	python3 main.py	
 
+up:
+	docker compose up --build
+
+down:
+	docker compose down
+
 # 11. Run everything
 all: install check prepare_data train_model test
 
