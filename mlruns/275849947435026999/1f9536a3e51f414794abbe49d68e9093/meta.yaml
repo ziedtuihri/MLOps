@@ -1,0 +1,15 @@
+artifact_uri: file:///home/ziedth/MLOps/mlruns/275849947435026999/1f9536a3e51f414794abbe49d68e9093/artifacts
+end_time: 1752589103607
+entry_point_name: ''
+experiment_id: '275849947435026999'
+lifecycle_stage: active
+run_id: 1f9536a3e51f414794abbe49d68e9093
+run_name: mysterious-newt-748
+run_uuid: 1f9536a3e51f414794abbe49d68e9093
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1752589094116
+status: 3
+tags: []
+user_id: ziedth

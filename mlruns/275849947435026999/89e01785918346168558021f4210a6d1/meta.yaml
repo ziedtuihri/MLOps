@@ -1,0 +1,15 @@
+artifact_uri: file:///home/ziedth/MLOps/mlruns/275849947435026999/89e01785918346168558021f4210a6d1/artifacts
+end_time: 1752593514939
+entry_point_name: ''
+experiment_id: '275849947435026999'
+lifecycle_stage: active
+run_id: 89e01785918346168558021f4210a6d1
+run_name: bold-fly-877
+run_uuid: 89e01785918346168558021f4210a6d1
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1752593506099
+status: 3
+tags: []
+user_id: ziedth

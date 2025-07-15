@@ -1,0 +1,15 @@
+artifact_uri: file:///home/ziedth/MLOps/mlruns/275849947435026999/f7930e6fe1d74a7984cd8cf4e25db146/artifacts
+end_time: 1752595646051
+entry_point_name: ''
+experiment_id: '275849947435026999'
+lifecycle_stage: active
+run_id: f7930e6fe1d74a7984cd8cf4e25db146
+run_name: unruly-penguin-750
+run_uuid: f7930e6fe1d74a7984cd8cf4e25db146
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1752595636847
+status: 3
+tags: []
+user_id: ziedth
