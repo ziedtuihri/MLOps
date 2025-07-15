@@ -14,6 +14,8 @@ COPY . /app
 # Run main.py to generate model.pkl
 RUN python3 main.py
 
+COPY mlflow.log /app/mlflow.log
+
 # Expose ports
 EXPOSE 5000 8000
 
