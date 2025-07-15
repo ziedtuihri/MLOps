@@ -10,3 +10,4 @@ bandit
 mlflow
 fastapi
 uvicorn
+python-multipart
