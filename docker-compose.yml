@@ -83,6 +83,11 @@ services:
       discovery.type: single-node
     networks:
       - elk
+    healthcheck:
+      test: ["CMD-SHELL", "curl -f http://localhost:9200/_cluster/health || exit 1"]
+      interval: 10s
+      timeout: 5s
+      retries: 10      
 
 
   logstash:
@@ -105,7 +110,8 @@ services:
     networks:
       - elk
     depends_on:
-      - elasticsearch
+      elasticsearch:
+        condition: service_healthy
 
   kibana:
     build:
