@@ -3,27 +3,123 @@
 <head>
     <meta charset="UTF-8">
     <title>ML Model Prediction</title>
+    <style>
+        body {
+            background: #f4f8fb;
+            font-family: 'Segoe UI', Arial, sans-serif;
+            color: #222;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 420px;
+            margin: 40px auto;
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+            padding: 32px 28px 24px 28px;
+        }
+        h1 {
+            color: #2563eb;
+            text-align: center;
+            margin-bottom: 28px;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+        label {
+            font-weight: 500;
+            color: #2563eb;
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+        input[type="number"] {
+            padding: 8px 10px;
+            border: 1px solid #bcd0ee;
+            border-radius: 6px;
+            font-size: 1rem;
+            background: #f7fafc;
+            transition: border 0.2s;
+        }
+        input[type="number"]:focus {
+            border: 1.5px solid #2563eb;
+            outline: none;
+        }
+        button[type="submit"] {
+            margin-top: 18px;
+            background: #2563eb;
+            color: #fff;
+            border: none;
+            border-radius: 6px;
+            padding: 12px 0;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        button[type="submit"]:hover {
+            background: #174ea6;
+        }
+        .prediction {
+            margin-top: 24px;
+            text-align: center;
+            font-size: 1.2rem;
+            color: #2563eb;
+            font-weight: 600;
+        }
+    </style>
 </head>
 <body>
-    <h1>ML Model Prediction</h1>
-    <form method="post">
-        <label>Quarter: <input type="number" step="any" name="quarter" required></label><br>
-        <label>Department: <input type="number" step="any" name="department" required></label><br>
-        <label>Day: <input type="number" step="any" name="day" required></label><br>
-        <label>Team: <input type="number" step="any" name="team" required></label><br>
-        <label>Targeted Productivity: <input type="number" step="any" name="targeted_productivity" required></label><br>
-        <label>SMV: <input type="number" step="any" name="smv" required></label><br>
-        <label>WIP: <input type="number" step="any" name="wip" required></label><br>
-        <label>Over Time: <input type="number" step="any" name="over_time" required></label><br>
-        <label>Incentive: <input type="number" step="any" name="incentive" required></label><br>
-        <label>Idle Time: <input type="number" step="any" name="idle_time" required></label><br>
-        <label>Idle Men: <input type="number" step="any" name="idle_men" required></label><br>
-        <label>No of Style Change: <input type="number" step="any" name="no_of_style_change" required></label><br>
-        <label>No of Workers: <input type="number" step="any" name="no_of_workers" required></label><br>
-        <button type="submit">Predict</button>
-    </form>
-    {% if prediction is not none %}
-        <h2>Prediction: {{ prediction }}</h2>
-    {% endif %}
+    <div class="container">
+        <h1>ML Model Prediction</h1>
+        <form method="post">
+            <label>Quarter:
+                <input type="number" step="any" name="quarter" required>
+            </label>
+            <label>Department:
+                <input type="number" step="any" name="department" required>
+            </label>
+            <label>Day:
+                <input type="number" step="any" name="day" required>
+            </label>
+            <label>Team:
+                <input type="number" step="any" name="team" required>
+            </label>
+            <label>Targeted Productivity:
+                <input type="number" step="any" name="targeted_productivity" required>
+            </label>
+            <label>SMV:
+                <input type="number" step="any" name="smv" required>
+            </label>
+            <label>WIP:
+                <input type="number" step="any" name="wip" required>
+            </label>
+            <label>Over Time:
+                <input type="number" step="any" name="over_time" required>
+            </label>
+            <label>Incentive:
+                <input type="number" step="any" name="incentive" required>
+            </label>
+            <label>Idle Time:
+                <input type="number" step="any" name="idle_time" required>
+            </label>
+            <label>Idle Men:
+                <input type="number" step="any" name="idle_men" required>
+            </label>
+            <label>No of Style Change:
+                <input type="number" step="any" name="no_of_style_change" required>
+            </label>
+            <label>No of Workers:
+                <input type="number" step="any" name="no_of_workers" required>
+            </label>
+            <button type="submit">Predict</button>
+        </form>
+        {% if prediction is not none %}
+            <div class="prediction">Prediction: {{ prediction }}</div>
+        {% endif %}
+    </div>
 </body>
 </html> 
